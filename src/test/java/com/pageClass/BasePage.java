@@ -6,13 +6,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.common.Driver;
+import com.common.Util;
 
-public class BasePage {
+public class BasePage extends Util {
 
 	public WebDriver driver;
 
 	public BasePage() {
 		this.driver = Driver.getDriverInstance();
+	}
+
+	public void openAppURL() {
+		System.out.println("Application URL --- " + configProperties.get("APPURL"));
+		driver.get(configProperties.get("APPURL"));
+
 	}
 
 	public void clickElement(WebElement element) {

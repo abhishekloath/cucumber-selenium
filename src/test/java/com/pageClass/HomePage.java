@@ -13,7 +13,7 @@ public class HomePage extends BasePage {
 
 	public void navigateToHomePage() {
 
-		driver.get("https://www.autotrader.com");
+		openAppURL();
 
 	}
 

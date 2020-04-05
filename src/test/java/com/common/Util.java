@@ -1,5 +1,9 @@
 package com.common;
 
+import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Properties;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
@@ -7,6 +11,13 @@ import org.openqa.selenium.WebDriverException;
 import io.cucumber.java.Scenario;
 
 public class Util extends Driver {
+
+	Properties properties = new Properties();
+	public HashMap<String, String> configProperties = new HashMap<String, String>();
+
+	public Util() {
+		this.createMapFromProperties();
+	}
 
 	public void takeScreenShot(Scenario scenario) {
 
@@ -20,4 +31,27 @@ public class Util extends Driver {
 
 		}
 	}
+
+	public void createMapFromProperties() {
+		try {
+			properties.load(new FileInputStream("src/test/resources/Test.properties"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		for (String key : properties.stringPropertyNames()) {
+			configProperties.put(key, properties.getProperty(key));
+		}
+	}
+
+	public String browserType() {
+		String browserName;
+
+		if (System.getProperty("Browser") == null) {
+			browserName = configProperties.get("BROWSER");
+		} else {
+			browserName = System.getProperty("Browser");
+		}
+		return browserName;
+	}
+
 }
