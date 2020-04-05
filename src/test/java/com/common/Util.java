@@ -17,6 +17,7 @@ public class Util extends Driver {
 
 	public Util() {
 		this.createMapFromProperties();
+		this.browserType();
 	}
 
 	public void takeScreenShot(Scenario scenario) {
@@ -46,12 +47,14 @@ public class Util extends Driver {
 	public String browserType() {
 		String browserName;
 
-		if (System.getProperty("Browser") == null) {
+		if (System.getenv("Browser") == null) {
 			browserName = configProperties.get("BROWSER");
+			return browserName;
 		} else {
-			browserName = System.getProperty("Browser");
+			browserName = System.getenv("Browser");
+			return browserName;
 		}
-		return browserName;
+
 	}
 
 }
