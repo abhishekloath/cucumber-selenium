@@ -44,17 +44,17 @@ public class HomePageSteps extends BasePage {
 
 	@When("user enters {string} in the text box")
 	public void user_enters_in_the_text_box(String zipCode) {
-		WaitForElement(homePageEle.cerfied);
+		WaitForElement(homePageEle.zipCode);
 		enterText(homePageEle.zipCode, zipCode);
 	}
 
 	@When("user selects certified checkbox under Condition")
 	public void user_selects_certified_checkbox_under_Condition() {
-		clickCheckbox(homePageEle.cerfied);
+		clickCheckbox(homePageEle.certified);
 	}
 
 	@When("user selects convertible checkbox under Style")
-	public void user_selects_convertible_checkbox_under_Style() {
+	public void user_selects_convertible_checkbox_under_Style() throws InterruptedException {
 		clickCheckbox(homePageEle.convertible);
 	}
 

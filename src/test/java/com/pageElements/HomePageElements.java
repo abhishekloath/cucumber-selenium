@@ -15,14 +15,14 @@ public class HomePageElements {
 
 	}
 
-	public @FindBy(xpath = "//*[text()='Browse by Make']") WebElement browseByMake;
-	public @FindBy(xpath = "//*[text()='Browse by Style']") WebElement browseByStyle;
+	public @FindBy(css = "button[title='Browse by Make']") WebElement browseByMake;
+	public @FindBy(css = "button[title='Browse by Style']") WebElement browseByStyle;
 	public @FindBy(linkText = "Advanced Search") WebElement advancedSearch;
 	public @FindBy(id = "search") WebElement search;
-	public @FindBy(id = "makeCodeListPlaceHolder") WebElement make;
-	public @FindBy(id = "modelCodeListPlaceHolder") WebElement model;
+	public @FindBy(id = "makeCode") WebElement make;
+	public @FindBy(id = "ModelCode") WebElement model;
 	public @FindBy(name = "zip") WebElement zipCode;
-	public @FindBy(xpath = "//*[text()= 'Certified']") WebElement cerfied;
+	public @FindBy(xpath = "//*[text()= 'Certified']") WebElement certified;
 	public @FindBy(xpath = "//*[text()= 'Convertible']") WebElement convertible;
 	public @FindBy(id = "4101482096") WebElement fromYear;
 	public @FindBy(id = "258002540") WebElement toYear;

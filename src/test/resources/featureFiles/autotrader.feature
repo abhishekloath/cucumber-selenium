@@ -1,6 +1,6 @@
 Feature: Validate the Auto trader home page and validate the search results for BMW cars
 
-  @test
+  @test1
   Scenario Outline: Validate whether user is able to see the "<Make>" car results
     Given user is on autotrader home page
     When user validates Browser by Make, Browse by Style and Advanced Search Links are present

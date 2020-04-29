@@ -49,15 +49,20 @@ public class HomePage extends BasePage {
 		System.out.println("Results count ---- " + element.size());
 		for (WebElement result : element) {
 			System.out.println("Results text------   " + result.getText());
-			Assert.assertTrue(result.getText().contains(make));
-			System.out.println("Result match with make --- " + result.getText().contains(make));
-
+			String[] resultText = result.getText().split("\\s+");
+			for (int i = 0; i < resultText.length; i++) {
+				if (resultText[i].equals(make)) {
+					Assert.assertTrue(true);
+					System.out.println("Result match with make --- " + resultText[i].equals(make));
+				}
+			}
 		}
 	}
 
 	public void validatePageTitle() {
 
 		System.out.println("Page Title ---------- " + driver.getTitle());
+
 	}
 
 }
